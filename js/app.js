@@ -6,7 +6,7 @@ const getSection = document.querySelectorAll("section[data-nav]");
 const array = [...sections];
 console.log(array[0]);
 
-// IIFE function to create the Nav Bar
+// creating the nav bar dynamically with a function
 function navBar(items) {
   for (i in items) {
     let tag = items[i].dataset.nav;
