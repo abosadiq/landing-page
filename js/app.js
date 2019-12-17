@@ -4,7 +4,7 @@ const getSection = document.querySelectorAll("section[data-nav]");
 
 // Convert the NodeList to an Array
 const array = [...sections];
-console.log(array[0]);
+// console.log(array[0]);
 
 // IIFE function to create the Nav Bar
 function navBar(items) {
@@ -28,22 +28,21 @@ navBar(array);
 // make an array with all anchor tag
 const arr = document.querySelectorAll("a");
 // loop through the tags for smooth scroll
-for (let a = 0; a < arr.length; a++) {
-  arr[a].addEventListener("click", function(e) {
+
+arr.forEach(a => {
+  a.addEventListener("click", function(e) {
     e.preventDefault();
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       block: "start",
       behavior: "smooth"
     });
   });
-}
+});
 
-function chnageState(e) {
+const changeState = () => {
   let i = 3;
 
-  Array.from(sections, function(e) {
-    array[e.id] = e.offsetTop;
-  });
+  Array.from(sections, e => (array[e.id] = e.offsetTop));
 
   window.addEventListener("scroll", function() {
     let scrollPosition = document.documentElement.scrollTop;
@@ -71,6 +70,6 @@ function chnageState(e) {
       }
     }
   });
-}
+};
 
-chnageState();
+changeState();
